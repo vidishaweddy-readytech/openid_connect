@@ -25,7 +25,7 @@ module OpenIDConnect
       handle_response do
         http_client.get(
           absolute_uri_for(token_endpoint),
-          Util.compact_hash(params),
+          ::Rack::Oauth2::Util.compact_hash(params),
           headers
         ) do |req|
           yield req if block_given?
